@@ -209,4 +209,90 @@ export var translates = {
     wireguardMTU: {
         "": "MTU",
     },
+    
+    // ByeDPI
+    proxySettings: {
+        "": "Proxy",
+    },
+    desyncManual: {
+        "": "Manual mode",
+    },
+    desyncCommand: {
+        "": "Options",
+    },
+    disableUDP: {
+        "": "Disable UDP",
+    },
+    disableIPv6: {
+        "": "Disable IPv6",
+    },
+    customTTL: {
+        "": "Custom TTL",
+    },
+    desyncSettings: {
+        "": "Desync",
+    },
+    desyncMethod: {
+        "": "Desync method",
+    },
+    desyncSplitPos: {
+        "": "Split position",
+    },
+    desyncSplitEnd: {
+        "": "Negative position (from end)",
+    },
+    desyncSplitSNI: {
+        "": "Add SNI offset to position",
+    },
+    desyncFakeTTL: {
+        "": "TTL of fake packets",
+    },
+    desyncFakeData: {
+        "": "Fake data (C-format string)",
+    },
+    desyncOOBData: {
+        "": "OOB data",
+    },
+    packetSettings: {
+        "": "Packet modifications",
+    },
+    desyncTLSRec: {
+        "": "TLS record position",
+    },
+    desyncTLSRecSNI: {
+        "": "Add SNI offset to position",
+    },
+    desyncHTTPCase: {
+        "": "HTTP mixed case",
+    },
+    desyncHTTPRmSpace: {
+        "": "HTTP remove space",
+    },
+    excludeSettings: {
+        "": "Exclude",
+    },
+    mode: {
+        "": "Mode",
+    },
+    blacklist: {
+        "": "Blacklist",
+    },
+    whitelist: {
+        "": "Whitelist",
+    },
+    excludeHosts: {
+        "": "Hostlist",
+    },
+    excludeProtocol: {
+        "": "Only TLS and HTTP",
+    },
+    excludeTrigger: {
+        "": "Trigger",
+    },
+    excludeTriggerCanc: {
+        "": "Reverse trigger",
+    },
+    timeout: {
+        "": "Timeout",
+    },
 }
