@@ -274,18 +274,6 @@ export var translates = {
     mode: {
         "": "Mode",
     },
-    blacklist: {
-        "": "Blacklist",
-    },
-    whitelist: {
-        "": "Whitelist",
-    },
-    excludeHosts: {
-        "": "Hostlist",
-    },
-    excludeProtocol: {
-        "": "Only TLS and HTTP",
-    },
     excludeTrigger: {
         "": "Trigger",
     },

@@ -17,7 +17,7 @@ unzip_ciadpi() {
 }
 
 download_ciadpi() {
-  VERSION="11"
+  VERSION="10.2"
   TAG="v0.${VERSION}"
   mkdir_libs "app_ciadpi/libs"
 
@@ -25,6 +25,8 @@ download_ciadpi() {
   unzip_ciadpi arm64-v8a aarch64
   curl -Lo tmp.tar.gz "https://github.com/hufrea/byedpi/releases/download/${TAG}/byedpi-${VERSION}-armv7l.tar.gz"
   unzip_ciadpi armeabi-v7a armv7l
+  curl -Lo tmp.tar.gz "https://github.com/hufrea/byedpi/releases/download/${TAG}/byedpi-${VERSION}-x86_64.tar.gz"
+  unzip_ciadpi x86_64 x86_64
 }
 
 download_"$1"

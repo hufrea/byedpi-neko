@@ -38,9 +38,6 @@ class ciadpiClass {
         this.defaultSharedStorage.desyncHTTPCase = false
         this.defaultSharedStorage.desyncHTTPRmSpace = false
         
-        this.defaultSharedStorage.blacklist = false
-        this.defaultSharedStorage.excludeHosts = ""
-        this.defaultSharedStorage.excludeProtocol = false
         this.defaultSharedStorage.excludeTrigger = ""
         this.defaultSharedStorage.excludeTriggerCanc = false
         this.defaultSharedStorage.timeout = ""
@@ -175,21 +172,6 @@ class ciadpiClass {
                 "title": TR("excludeSettings"),
                 "preferences": [
                     {
-                        "type": "SwitchPreference",
-                        "key": "blacklist",
-                        "icon": "ic_baseline_add_road_24",
-                    },
-                    {
-                        "type": "EditTextPreference",
-                        "key": "excludeHosts",
-                        "icon": "ic_baseline_layers_24",
-                    },
-                    {
-                        "type": "SwitchPreference",
-                        "key": "excludeProtocol",
-                        "icon": "ic_baseline_legend_toggle_24",
-                    },
-                    {
                         "type": "SimpleMenuPreference",
                         "key": "excludeTrigger",
                         "icon": "ic_hardware_router",
@@ -244,7 +226,6 @@ class ciadpiClass {
         
         listenOnPreferenceChangedNow("desyncManual")
         listenOnPreferenceChangedNow("desyncMethod")
-        listenOnPreferenceChangedNow("blacklist")
         listenOnPreferenceChangedNow("excludeTrigger")
     }
 
@@ -269,10 +250,6 @@ class ciadpiClass {
             neko.setPreferenceTitle("desyncMethod", 
                 TR("desyncMethod") + (newValue ? ":  " : "") + newValue)
         }
-        if (key == "blacklist") {
-            neko.setPreferenceTitle("blacklist", 
-                TR("mode") + ": " + (newValue ? TR("blacklist") : TR("whitelist")))
-        }
         if (key == "excludeTrigger") {
             neko.setPreferenceTitle("excludeTrigger", 
                 TR("excludeTrigger") + (newValue ? ":  " : "") + newValue)
@@ -284,7 +261,6 @@ class ciadpiClass {
                 "customTTL", "desyncSplitPos", "desyncSplitSNI", "desyncSplitEnd",
                 "desyncFakeTTL", "desyncFakeData", "desyncOOBData", "desyncTLSRec",
                 "desyncTLSRecSNI",  "desyncHTTPCase", "desyncHTTPRmSpace",
-                "blacklist", "excludeHosts", "excludeProtocol", 
                 "excludeTrigger", "excludeTriggerCanc", "timeout"]
             for (const k of keys) {    
                 neko.setPreferenceVisibility(k, !newValue)
@@ -303,7 +279,7 @@ class ciadpiClass {
 
             let v = {}
             let cmd = ["%exe%", "--protect-path", "protect_path",
-                "--ip", "127.0.0.1", "--port", "" + args.port, "--debug=2"];
+                "--ip", "127.0.0.1", "--port", "" + args.port];
             
             if  (ss.desyncManual) {
                 cmd = cmd.concat(ss.desyncCommand.split(" "))
@@ -316,15 +292,8 @@ class ciadpiClass {
                     cmd.push("--def-ttl=" + s.customTTL)
                 }
                 
-                if (ss.excludeProtocol) {
-                    cmd.push("--proto=tls,http")
-                }
                 if (ss.excludeTrigger != "" && !ss.excludeTriggerCanc) {
                     cmd.push("--auto=" + ss.excludeTrigger)
-                }
-                if (ss.excludeHosts != "") {
-                    cmd.push("--hosts=:" + ss.excludeHosts)
-                    if (ss.blacklist) cmd.push("--auto=none")
                 }
                 if (ss.timeout != "") {
                     cmd.push("--timeout=" + ss.timeout)
