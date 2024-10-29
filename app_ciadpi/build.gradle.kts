@@ -8,8 +8,8 @@ setupAll()
 android {
     defaultConfig {
         applicationId = "moe.matsuri.plugin.ciadpi"
-        versionCode = 4
-        versionName = "v0.2.0"
+        versionCode = 5
+        versionName = "v0.2.1"
         splits.abi {
             reset()
             include("arm64-v8a")
