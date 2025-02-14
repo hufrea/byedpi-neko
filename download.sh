@@ -17,7 +17,7 @@ unzip_ciadpi() {
 }
 
 download_ciadpi() {
-  VERSION="15"
+  VERSION="16.6"
   TAG="v0.${VERSION}"
   mkdir_libs "app_ciadpi/libs"
 

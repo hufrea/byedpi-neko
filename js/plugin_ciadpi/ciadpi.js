@@ -18,7 +18,7 @@ class ciadpiClass {
         // end of default keys
         
         this.defaultSharedStorage.desyncManual = false
-        this.defaultSharedStorage.desyncCommand = "--disorder 3 --auto --tlsrec 1+s"
+        this.defaultSharedStorage.desyncCommand = "--disorder 3 --auto=torst --tlsrec 1+s"
         this.defaultSharedStorage.disableIPv6 = false
         this.defaultSharedStorage.disableUDP = false
         this.defaultSharedStorage.customTTL = ""
